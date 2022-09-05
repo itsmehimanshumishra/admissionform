@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Open - E.P.S. school</title>
+    <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
+    <!-- css starts -->
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  min-height: 100vh;
+  /*background: linear-gradient(to right top, #65dfc9, #6cdbeb);*/
+  background: #7d2ae8;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.glass {
+  background: white;
+  height: 95vh;
+  width: 90%;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 20px;
+  z-index: 2;
+  backdrop-filter: blur(16px);
+  display: flex;
+}
+
+.circle1,
+.circle2 {
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  top: 1%;
+  right: 1%;
+}
+.circle2 {
+  bottom: 1%;
+  left: 1%;
+}
+/*
+
+  some colors for left div :
+    rgba(255, 255, 255, 0.7)
+    rgba(255, 255, 255, 0.3)
+
+*/
+.left_bar {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
+  width: 30%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.left_bar .logo {
+  width: 95px;
+  height: 95px;
+  border-radius: 25%;
+}
+.left_bar .links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.left_bar .links a {
+  text-decoration: none;
+  color: black;
+}
+.left_bar .links a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+.left_bar .links div {
+  margin: 10px;
+}
+
+.left_bar .links img {
+  width: 15%;
+}
+.right_bar {
+  height: 100%;
+  width: 70%;
+    overflow-y: scroll;
+}
+
+.right_bar h1 {
+  margin: 10px;
+}
+
+/* form strats */
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+}
+.container .title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.content form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: #9b59b6;
+}
+form .gender-details .gender-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .category {
+  display: flex;
+  width: 100%;
+  margin: 14px 0;
+  justify-content: space-between;
+}
+form .category label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+form .category label .dot {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three {
+  background: #9b59b6;
+  border-color: #d9d9d9;
+}
+#dot-4:checked ~ .category label .one,
+#dot-5:checked ~ .category label .two,
+#dot-6:checked ~ .category label .three {
+  background: #9b59b6;
+  border-color: #d9d9d9;
+}
+form input[type="radio"] {
+  display: none;
+}
+form .button {
+  height: 45px;
+  margin: 35px 0;
+}
+form .button input {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+form .button input:hover {
+  /* transform: scale(0.99); */
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+
+    </style>
+    <!-- css ends -->
+</head>
+<body>
+    <main>
+        <section class="glass">
+          <div class="left_bar">
+            <img
+              src="img/logo.jpg"
+              class="logo"
+              alt="This is th logo for our school"
+            />
+            <h3>
+              N.K. Singh Memorial English Preparatory Secondary School(E.P.S.)
+            </h3>
+            <p>KNOWLEDGE IS POWER</p>
+            <br />
+            <div class="links">
+              <a href="https://epsschool.edu.np/" target="_blank">
+                <div style="display: flex; align-items: center">
+                  <img src="img/1.png" alt="This is logo" />
+                  <span style="margin-left: 2px">Vist Our Website</span>
+                </div></a
+              >
+              <a href="https://www.facebook.com/epsschool" target="_blank">
+                <div style="display: flex; align-items: center">
+                  <img src="img/2.png" alt="This is logo" />
+                  <span style="margin-left: 2px">Follow Us</span>
+                </div></a
+              >
+              <a
+                href="https://www.youtube.com/channel/UC-CiFfHM8GfTdgix1ZY5g1g"
+                target="_blank"
+              >
+                <div style="display: flex; align-items: center">
+                  <img src="img/3.jpg" alt="This is logo" />
+                  <span style="margin-left: 2px">Subscribe Us</span>
+                </div></a
+              >
+              <a href="mailto:info@epsschool.edu.np" target="_blank">
+                <div style="display: flex; align-items: center">
+                  <img src="img/4.png" alt="This is logo" />
+                  <span style="margin-left: 2px">Mail Us</span>
+                </div></a
+              >
+              <a href="https://goo.gl/maps/RJVqzNpGF3Knw1xr6" target="_blank">
+                <div style="display: flex; align-items: center">
+                  <img src="img/5.png" alt="This is the location logo" />
+                  <span style="margin-left: 2px">Minbhawan, KTM, NP</span>
+                </div></a
+              >
+            </div>
+          </div>
+  
+          <div class="right_bar">
+            <h1>Admission Open!!</h1>
+            <marquee behavior="scroll" direction="left">!!!Admission Open!!! from grade I to X. 		Feel free to fill the form and submit your details You are on the right place for your childs future...</marquee>
+  
+            <div class="container">
+              <div class="title">Online registration form/Admission Form.</div>
+              <div class="content">
+                <form action="#">
+                  <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" placeholder="Enter your name" required />
+                      </div>
+                      <div class="input-box">
+                          <span class="details">Email</span>
+                          <input
+                            type="E-mail"
+                            placeholder="Enter your email"
+                            required
+                          />
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Phone Number</span>
+                          <input
+                            type="text"
+                            placeholder="Enter your number"
+                            required
+                          />
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Class To Be Admitted In</span>
+                          <input
+                            type="text"
+                            placeholder="Enter your Grade"
+                            required
+                          />
+                        </div>
+                                            <div class="input-box">
+                        <span class="details">Temporary Address</span>
+                        <input
+                          type="text"
+                          placeholder="Enter your temporary address"
+                          required
+                        />
+                      </div>
+                      <div class="input-box">
+                        <span class="details">Permanent Address</span>
+                        <input
+                          type="text"
+                          placeholder="Enter your permanent address"
+                          required
+                        />
+                      </div>
+                      <div class="input-box">
+                          <span class="details">Last School Attend</span>
+                          <input
+                            type="text"
+                            placeholder="Enter your last school attend"
+                            required
+                          />
+                        </div>
+                        <div class="input-box">
+                          <span class="details">GPA/Percentage Obtained</span>
+                          <input
+                            type="text"
+                            placeholder="Enter your Marks Obtained"
+                            required
+                          />
+                      </div>
+                      <div class="input-box">
+                        <span class="details">Date Of Birth</span>
+                        <input type="date" id="birthday" name="birthday" required />
+                      </div>
+                      <div class="input-box">
+                          <span class="details">Student's Hobby</span>
+                          <input
+                            type="text"
+                            placeholder="Enter student's hobby"
+                            required
+                          />
+                        </div>
+                    
+                      <div class="input-box">
+                        <span class="details">Father's Name</span>
+                        <input
+                          type="text"
+                          placeholder="Enter your father's name"
+                          required
+                        />
+                      </div>
+                      <div class="input-box">
+                          <span class="details">Father's Phone Number</span>
+                          <input
+                            type="text"
+                            placeholder="Enter phone number"
+                            required
+                          />
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Father's Email<span>
+                          <input
+                            type="text"
+                            placeholder="Enter father's Email"
+                            required
+                          />
+                        </div><div class="input-box">
+                          <span class="details">Father's Occupation</span>
+                          <input
+                            type="text"
+                            placeholder="Enter father's occupation"
+                            required
+                          />
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Father's Work Place Address</span>
+                          <input
+                            type="text"
+                            placeholder="Enter Work Place Address"
+                            required
+                          />
+                        </div>
+                    
+                        <div class="input-box">
+                          <span class="details">Mother's Name</span>
+                          <input
+                            type="text"
+                            placeholder="Enter your mother's name"
+                            required
+                          />
+                        </div>
+                        <div class="input-box">
+                            <span class="details">Mother's Phone Number</span>
+                            <input
+                              type="text"
+                              placeholder="Enter phone number"
+                              required
+                            />
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Mother's Email<span>
+                            <input
+                              type="text"
+                              placeholder="Enter mother's Email"
+                              required
+                            />
+                          </div><div class="input-box">
+                            <span class="details">Mother's Occupation</span>
+                            <input
+                              type="text"
+                              placeholder="Enter mother's occupation"
+                              required
+                            />
+                          </div>
+                          <div class="input-box">
+                            <span class="details">Mother's Work Place Address</span>
+                            <input
+                              type="text"
+                              placeholder="Enter Work Place Address"
+                              required
+                            />
+                          </div>
+<div class="gender-details">
+    <input type="radio" name="gender" id="dot-4" />
+    <input type="radio" name="gender" id="dot-5" />
+    <input type="radio" name="gender" id="dot-6" />
+    <span class="gender-title">Gender</span>
+    <div class="category">
+      <label for="dot-4">
+        <span class="dot one"></span>
+        <span class="gender">Male</span>
+      </label>
+      <label for="dot-5">
+        <span class="dot two"></span>
+        <span class="gender">Female</span>
+      </label>
+      <label for="dot-6">
+        <span class="dot three"></span>
+        <span class="gender">Prefer not to say</span>
+      </label>
+    </div>
+  </div>
+  </div>
+  <div class="checkBox">
+    <input type="checkbox" name="conf" id="conf">
+    <span>I hereby declare that all the information provided are complete and correct</span>
+</div>
+                </form>
+
+                <br>
+             <font color="lightgreen"> <center> <h4>Thank You</h4></center></font> 
+               <br>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </main>
+      <div class="circle1"></div>
+      <div class="circle2"></div>
+</body>
+</html>
