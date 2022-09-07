@@ -1,0 +1,15 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1000" width="720" height="1000">
+	<title>logo</title>
+	<defs>
+		<image  width="720" height="1000" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAPoAQMAAADNx1urAAAAAXNSR0IB2cksfwAAAANQTFRF////p8QbyAAAAG9JREFUeJztwQENAAAAwqD3T20ON6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPg1jhwAB/gV9qAAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 150px;fill: #000000;font-weight: 400;font-family: "DejaVuSans", "DejaVu Sans" } 
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+	<text id="  Photo" style="transform: matrix(1,0,0,1,18,21)" >
+		<tspan x="128.1" y="474" class="t0">P</tspan><tspan  y="474" class="t0">h</tspan><tspan  y="474" class="t0">o</tspan><tspan  y="474" class="t0">t</tspan><tspan  y="474" class="t0">o
+</tspan>
+	</text>
+</svg>
